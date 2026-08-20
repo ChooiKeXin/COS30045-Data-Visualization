@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Watch | Televisions</title>
+  <meta name="description" content="Estimate what your television costs to run with the Power Watch appliance energy calculator." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/img/PowerIcon.png" type="image/png" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/img/PowerIcon.png" alt="Power Watch logo" class="nav__logo-img" />
+        <span class="nav__brand">Power Watch</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="televisions.html" class="nav__link is-active">Televisions</a></li>
+        <li><a href="about.html" class="nav__link">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__eyebrow">Appliance spotlight</p>
+        <h1>Televisions: a closer look</h1>
+        <p>
+          Modern TVs are far more efficient than older models, but screen
+          size, panel type and daily viewing hours still make a real
+          difference to running cost. Use the calculator below to estimate
+          what a television actually adds to a power bill.
+        </p>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="spark-divider" aria-hidden="true">
+        <span class="spark-divider__bolt"></span>
+      </div>
+    </div>
+
+    <section aria-labelledby="calc-heading">
+      <div class="wrap">
+        <h2 id="calc-heading" class="section-title">Energy calculator</h2>
+        <p class="section-lede">
+          Choose a TV model (or enter a custom wattage), how many hours a
+          day it's typically on, and your electricity price, to see an
+          estimated running cost. Results update automatically as you
+          change any field.
+        </p>
+
+        <form class="calculator" id="calculator-form" novalidate>
+          <div class="calculator__form">
+            <fieldset>
+              <legend>Your television</legend>
+
+              <div class="field">
+                <label for="tv-model">TV model</label>
+                <select id="tv-model" name="tv-model">
+                  <option value="" selected>Choose a model&hellip;</option>
+                  <option value="32-led">32&quot; LED TV (~60W)</option>
+                  <option value="43-led">43&quot; LED TV (~90W)</option>
+                  <option value="55-led4k">55&quot; 4K LED TV (~110W)</option>
+                  <option value="65-oled">65&quot; OLED TV (~150W)</option>
+                  <option value="75-qled">75&quot; QLED TV (~205W)</option>
+                  <option value="custom">Custom wattage&hellip;</option>
+                </select>
+                <p class="field-error" id="error-model"></p>
+              </div>
+
+              <div class="field field--custom-watt" id="custom-watt-field">
+                <label for="custom-watt">Custom wattage (W)</label>
+                <input type="number" id="custom-watt" name="custom-watt" min="1" step="1" placeholder="e.g. 120" />
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Usage</legend>
+
+              <div class="field">
+                <label for="hours-per-day">Average hours used per day</label>
+                <input type="number" id="hours-per-day" name="hours-per-day" min="0" max="24" step="0.5" placeholder="e.g. 5" />
+                <p class="field-error" id="error-hours"></p>
+              </div>
+
+              <div class="field">
+                <label for="price-per-kwh">Electricity price (cents per kWh)</label>
+                <input type="number" id="price-per-kwh" name="price-per-kwh" min="1" step="1" placeholder="e.g. 30" />
+                <p class="field-error" id="error-price"></p>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="calculator__submit">Calculate</button>
+          </div>
+
+          <div class="meter" aria-live="polite">
+            <p class="meter__title">Estimated running cost</p>
+            <div id="meter-results">
+              <p class="meter__hint" style="margin-top:0;">
+                Fill in every field above to see an estimate.
+              </p>
+            </div>
+            <p class="meter__hint">
+              Estimates assume the TV runs at a constant wattage for the
+              hours entered. Wattage figures are illustrative placeholders
+              for this exercise.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> Power Watch — created by Chooi Ke Xin.</p>
+      <p class="site-footer__ai">
+        Some code on this site was developed with the assistance of
+        Generative AI. See the project README for the full reflection.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

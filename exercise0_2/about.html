@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Watch | About Us</title>
+  <meta name="description" content="About the Power Watch appliance energy consumption demonstration project." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/img/PowerIcon.png" type="image/png" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/img/PowerIcon.png" alt="Power Watch logo" class="nav__logo-img" />
+        <span class="nav__brand">Power Watch</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="televisions.html" class="nav__link">Televisions</a></li>
+        <li><a href="about.html" class="nav__link is-active">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero about-hero">
+      <div class="wrap">
+        <p class="hero__eyebrow">About the project</p>
+        <h1>About Power Watch</h1>
+        <p>
+          Power Watch is a small, three-page demonstration website built
+          for a university web development exercise. It's designed to
+          show how HTML, CSS and JavaScript work together to build a
+          simple, consistently styled, interactive site.
+        </p>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="spark-divider" aria-hidden="true">
+        <span class="spark-divider__bolt"></span>
+      </div>
+    </div>
+
+    <section aria-labelledby="purpose-heading">
+      <div class="wrap">
+        <h2 id="purpose-heading" class="section-title">What this site covers</h2>
+        <p class="section-lede">Placeholder project description.</p>
+        <ul class="about-list">
+          <li>A consistent top navigation with an active-page indicator across all three pages.</li>
+          <li>Home page content on Australian household appliance energy use, with an accordion-style FAQ.</li>
+          <li>An interactive appliance energy calculator on the Televisions page, built with vanilla JavaScript.</li>
+          <li>A single external stylesheet applied consistently across every page.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="disclaimer-heading">
+      <div class="wrap">
+        <h2 id="disclaimer-heading" class="section-title">A note on the figures</h2>
+        <p class="section-lede">
+          Appliance wattages, percentages and other statistics shown on
+          this site are illustrative placeholders created for this
+          exercise. They are not verified data and shouldn't be relied on
+          for real-world decisions.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <div class="wrap">
+        <h2 id="contact-heading" class="section-title">Contact</h2>
+        <p class="section-lede">
+          Placeholder contact details — replace with your own.<br />
+          Email: <a href="105952915@student.swin.edu.au">105952915@student.swin.edu.au</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> Power Watch — created by Chooi Ke Xin.</p>
+      <p class="site-footer__ai">
+        Some code on this site was developed with the assistance of
+        Generative AI. See the project README for the full reflection.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

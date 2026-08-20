@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Watch | Home</title>
+  <meta name="description" content="Power Watch helps Australian households understand what their appliances really cost to run." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/img/PowerIcon.png" type="image/png" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/img/PowerIcon.png" alt="Power Watch logo" class="nav__logo-img" />
+        <span class="nav__brand">Power Watch</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link is-active">Home</a></li>
+        <li><a href="televisions.html" class="nav__link">Televisions</a></li>
+        <li><a href="about.html" class="nav__link">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__eyebrow">Australian household energy</p>
+        <h1>Know what's really running up your power bill.</h1>
+        <p>
+          Power Watch is a small demonstration site about appliance energy
+          consumption in Australian homes. Electricity prices have climbed
+          in recent years, and everyday appliances left running quietly in
+          the background are often a bigger part of the bill than people
+          expect. This page walks through the basics; the
+          <a href="televisions.html">Televisions</a> page lets you estimate
+          the running cost of a TV for yourself.
+        </p>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="spark-divider" aria-hidden="true">
+        <span class="spark-divider__bolt"></span>
+      </div>
+    </div>
+
+    <section aria-labelledby="why-heading">
+      <div class="wrap">
+        <h2 id="why-heading" class="section-title">Where household electricity goes</h2>
+        <p class="section-lede">
+          Placeholder overview of appliance energy use in the Australian
+          market. Figures below are illustrative examples for this
+          exercise, not verified statistics.
+        </p>
+
+        <div class="card-grid">
+          <div class="card">
+            <span class="card__stat">~35%</span>
+            <h3>Heating &amp; cooling</h3>
+            <p>Typically the largest single share of a home's electricity use across the year.</p>
+          </div>
+          <div class="card">
+            <span class="card__stat">~24%</span>
+            <h3>Hot water</h3>
+            <p>Water heating runs quietly in the background but adds up over a billing cycle.</p>
+          </div>
+          <div class="card">
+            <span class="card__stat">~15%</span>
+            <h3>Appliances</h3>
+            <p>Fridges, TVs, washing machines and other everyday appliances combined.</p>
+          </div>
+          <div class="card">
+            <span class="card__stat">~10%</span>
+            <h3>Standby power</h3>
+            <p>Devices left plugged in on standby can draw power even when "off".</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-heading">
+      <div class="wrap">
+        <h2 id="faq-heading" class="section-title">Frequently asked questions</h2>
+        <p class="section-lede">Click a question to reveal the answer.</p>
+
+        <div class="faq">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-q-1">
+              <span>What uses the most electricity in an Australian home?</span>
+              <span class="faq-question__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-q-1">
+              <p>
+                Heating and cooling systems are usually
+                the biggest contributor, followed by hot water and large
+                appliances such as fridges and washing machines.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-q-2">
+              <span>How do I read an appliance's power label?</span>
+              <span class="faq-question__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-q-2">
+              <p>
+                Most appliances list a wattage (W) or
+                energy rating sticker. The higher the wattage, the more
+                electricity the appliance draws while it's running.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-q-3">
+              <span>Does turning appliances off at the wall actually save money?</span>
+              <span class="faq-question__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-q-3">
+              <p>
+                Some devices continue to draw a small
+                amount of standby power when left plugged in. Switching
+                them off at the wall can lead to modest savings over a year.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-q-4">
+              <span>How is a kilowatt-hour (kWh) calculated?</span>
+              <span class="faq-question__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-q-4">
+              <p>
+                A kWh is the appliance's power in watts,
+                multiplied by the hours it runs, divided by 1000. Try it
+                yourself on the <a href="televisions.html">Televisions</a>
+                page.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> Power Watch — created by Chooi Ke Xin.</p>
+      <p class="site-footer__ai">
+        Some code on this site was developed with the assistance of
+        Generative AI. See the project README for the full reflection.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
