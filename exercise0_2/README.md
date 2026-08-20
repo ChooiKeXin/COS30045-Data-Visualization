@@ -58,20 +58,23 @@ This site is hosted on Swinburne's Mercury server. It was uploaded via WinSCP in
 
 **Tool(s) used:** Claude (Anthropic).
 
-**What I used it for:** For scaffolding the initial HTML/CSS/JS structure.
+**What I used it for:** 
+For scaffolding the initial HTML/CSS/JS structure.
 
-**What I changed or adapted after generation:** I modified the text content, font style, color, and size, 
-and added answers to the "Frequently Asked Questions" section to ensure the content aligned with the assignment 
-requirements. I also updated the file path so that the page could be opened using the correct web address in WinSCP.
+**What I changed or adapted after generation:** 
+I modified the text content, font style, color, and size, and added answers to the "Frequently Asked Questions" section 
+to ensure the content aligned with the assignment requirements. I also updated the file path so that the page could be 
+opened using the correct web address in WinSCP.
 
-**What I learned:** I learnt how CSS custom properties (`:root` variables) keep a colour palette
-consistent across pages, how `aria-expanded` is used for both accessibility and styling hooks,how to 
-validate form input and update the DOM without using `alert()`. I also gained insight into specific CSS 
-design requirements. In addition, I also learned about implementing energy consumption calculations, 
-including converting watts and hours of use into daily, monthly and yearly kWh figures and estimated cost. 
-I learned how to use JavaScript to add interactivity to the page such as creating a power consumption calculator
- and processing user input.
+**What I learned:** 
+I learnt how CSS custom properties (`:root` variables) keep a colour palette consistent across pages, how `aria-expanded` 
+is used for both accessibility and styling hooks,how to validate form input and update the DOM without using `alert()`. 
+I also gained insight into specific CSS design requirements. In addition, I also learned about implementing energy consumption 
+calculations, including converting watts and hours of use into daily, monthly and yearly kWh figures and estimated cost. I 
+learned how to use JavaScript to add interactivity to the page such as creating a power consumption calculator and processing 
+user input.
 
-**Limitations or issues encountered:** It is a path-related issue. For instance, when a webpage fails to load in WinSCP. 
-It takes time to make changes and check the details carefully to avoid overlooking errors.
+**Limitations or issues encountered:** 
+It is a path-related issue. For instance, when a webpage fails to load in WinSCP. It takes time to make changes and check the 
+details carefully to avoid overlooking errors.
 
