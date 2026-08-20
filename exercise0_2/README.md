@@ -59,6 +59,7 @@ This site is hosted on Swinburne's Mercury server. It was uploaded via WinSCP in
 **Tool(s) used:** Claude (Anthropic).
 
 **What I used it for:** 
+
 For scaffolding the initial HTML/CSS/JS structure.
 
 **What I changed or adapted after generation:** 
