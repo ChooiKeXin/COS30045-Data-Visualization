@@ -96,7 +96,7 @@ This site is hosted on Swinburne's Mercury server. It was uploaded via WinSCP in
 ## Website Structure
 
 ```
-exercise0_2/
+ex3/
 ├── index.html            # Home page
 ├── televisions.html      # TV energy calculator
 ├── story.html            # NEW — Data Story page (Exercise 3)
