@@ -1,0 +1,504 @@
+/* =========================================================
+   Power Watch — Appliance Energy Consumption Website
+   Stylesheet
+   Colour palette is derived from the provided PowerIcon logo:
+   cream fill, brown outline, orange lightning bolt.
+   ========================================================= */
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Colours (from logo) */
+  --color-cream: #FBF3D9;      /* page background */
+  --color-cream-panel: #F5E6A0;/* logo yellow, used for soft panels */
+  --color-brown: #5C4A2E;      /* primary text / borders */
+  --color-brown-deep: #362A18; /* darkest brown, meter panel bg */
+  --color-orange: #E8A33D;     /* accent (lightning bolt) */
+  --color-orange-deep: #C97C1F;/* accent hover / active */
+  --color-ink: #2B2318;        /* body copy */
+  --color-error: #B3341C;
+  --color-success: #3C6B3E;
+
+  /* Type */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
+  /* Layout */
+  --max-width: 1080px;
+  --radius: 10px;
+  --border: 2px solid var(--color-brown);
+  --shadow-soft: 0 6px 18px rgba(54, 42, 24, 0.12);
+}
+
+/* ---------- Reset-ish basics ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--color-brown-deep);
+  line-height: 1.15;
+  margin-top: 0;
+}
+
+a {
+  color: var(--color-orange-deep);
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header / Navigation ---------- */
+.site-header {
+  background: var(--color-cream-panel);
+  border-bottom: var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--color-brown-deep);
+}
+
+.nav__logo-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.nav__logo:hover .nav__logo-img,
+.nav__logo:focus-visible .nav__logo-img {
+  transform: rotate(-8deg) scale(1.06);
+  filter: drop-shadow(0 0 6px rgba(232, 163, 61, 0.7));
+}
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav__link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-brown-deep);
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  background: var(--color-cream);
+  border-color: var(--color-brown);
+}
+
+.nav__link.is-active {
+  background: var(--color-orange);
+  border-color: var(--color-brown);
+  color: var(--color-brown-deep);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 64px 0 40px;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  color: var(--color-orange-deep);
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  max-width: 18ch;
+  margin: 10px 0 18px;
+}
+
+.hero p {
+  max-width: 60ch;
+  font-size: 1.08rem;
+}
+
+/* Bolt divider — the site's signature motif */
+.spark-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 40px 0;
+}
+
+.spark-divider::before,
+.spark-divider::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--color-brown);
+  opacity: 0.35;
+}
+
+.spark-divider__bolt {
+  width: 20px;
+  height: 20px;
+  background: var(--color-orange);
+  clip-path: polygon(55% 0%, 20% 55%, 48% 55%, 40% 100%, 85% 40%, 55% 40%);
+  border: 1px solid var(--color-brown);
+}
+
+/* ---------- Generic sections & cards ---------- */
+section {
+  padding: 16px 0 48px;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 8px;
+}
+
+.section-lede {
+  max-width: 65ch;
+  margin-bottom: 28px;
+  color: var(--color-brown-deep);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: #fff;
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.card__stat {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  color: var(--color-orange-deep);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ---------- FAQ accordion ---------- */
+.faq {
+  border-top: var(--border);
+}
+
+.faq-item {
+  border-bottom: var(--border);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--color-brown-deep);
+  padding: 16px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.faq-question:hover {
+  color: var(--color-orange-deep);
+}
+
+.faq-question__icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.faq-question[aria-expanded="true"] .faq-question__icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease;
+}
+
+.faq-answer p {
+  margin: 0 0 18px;
+  padding: 0 4px;
+  max-width: 65ch;
+  color: var(--color-ink);
+}
+
+/* ---------- Calculator ---------- */
+.calculator {
+  background: var(--color-cream-panel);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1.1fr 1fr;
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 720px) {
+  .calculator {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calculator__form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.calculator__form legend {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--color-brown-deep);
+  margin-bottom: 10px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--color-brown);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: #fff;
+  color: var(--color-ink);
+}
+
+.field--custom-watt {
+  display: none;
+  margin-top: 10px;
+}
+
+.field--custom-watt.is-visible {
+  display: block;
+}
+
+.field-error {
+  color: var(--color-error);
+  font-size: 0.85rem;
+  margin-top: 6px;
+  min-height: 1.2em;
+}
+
+.calculator__submit {
+  background: var(--color-orange);
+  border: 2px solid var(--color-brown);
+  color: var(--color-brown-deep);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.12s ease;
+}
+
+.calculator__submit:hover {
+  background: var(--color-orange-deep);
+  color: #fff;
+}
+
+.calculator__submit:active {
+  transform: scale(0.97);
+}
+
+/* Meter-style results readout — the calculator's signature look */
+.meter {
+  background: var(--color-brown-deep);
+  border-radius: var(--radius);
+  padding: 22px;
+  color: var(--color-cream);
+  border: 2px solid var(--color-brown);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.meter__title {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  color: var(--color-orange);
+  margin-bottom: 14px;
+}
+
+.meter__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(251, 243, 217, 0.25);
+  gap: 10px;
+}
+
+.meter__row:last-child {
+  border-bottom: none;
+}
+
+.meter__label {
+  font-size: 0.88rem;
+  color: var(--color-cream-panel);
+}
+
+.meter__value {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  white-space: nowrap;
+}
+
+.meter__hint {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: rgba(251, 243, 217, 0.7);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: var(--border);
+  background: var(--color-cream-panel);
+  padding: 26px 0 34px;
+  margin-top: 40px;
+}
+
+.site-footer .wrap {
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: var(--color-brown-deep);
+}
+
+.site-footer__ai {
+  font-size: 0.78rem;
+  color: var(--color-brown);
+  opacity: 0.85;
+}
+
+/* ---------- About page specifics ---------- */
+.about-hero {
+  padding-top: 48px;
+}
+
+.about-list {
+  padding-left: 20px;
+}
+
+.about-list li {
+  margin-bottom: 10px;
+}

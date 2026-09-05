@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Watch | Data Story — TV Energy Consumption</title>
+  <meta name="description" content="A data story exploring how TV screen size relates to yearly energy consumption in the Australian market, told across three chapters with interactive charts." />
+
+  <!-- Google Fonts (same as the rest of the site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <!-- Existing site stylesheet (unchanged) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- New, additive stylesheet for this page only -->
+  <link rel="stylesheet" href="assets/css/story.css" />
+  <link rel="icon" href="assets/img/PowerIcon.png" type="image/png" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/img/PowerIcon.png" alt="Power Watch logo" class="nav__logo-img" />
+        <span class="nav__brand">Power Watch</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="televisions.html" class="nav__link">Televisions</a></li>
+        <li><a href="story.html" class="nav__link is-active">Data Story</a></li>
+        <li><a href="about.html" class="nav__link">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero story-hero">
+      <div class="wrap">
+        <p class="hero__eyebrow">Data storytelling · Exercise 3</p>
+        <h1>Does a bigger TV really cost you more?</h1>
+        <p>
+          We looked at 4,508 television models currently available for sale
+          in Australia — comparing screen size against labelled yearly
+          energy use — to find out. The story unfolds in three short
+          chapters below, each built for a different reader: someone
+          shopping for a TV, someone setting energy policy, and someone
+          who just wants to see what the data really says.
+        </p>
+        <div class="story-hero__meta">
+          <span>4,508 TV models analysed</span>
+          <span>Source: Australian Government energy rating dataset</span>
+          <span>Processed in KNIME</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <nav class="chapter-nav" aria-label="Story chapters">
+        <ul class="chapter-nav__list">
+          <li><a class="chapter-nav__link" href="#chapter-1">1 · Bigger Screen, Bigger Bill</a></li>
+          <li><a class="chapter-nav__link" href="#chapter-2">2 · The Hidden Cost of Going Big</a></li>
+          <li><a class="chapter-nav__link" href="#chapter-3">3 · Diminishing Returns</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- ============ CHAPTER 1 ============ -->
+    <section class="story-chapter" id="chapter-1" aria-labelledby="chapter-1-heading">
+      <div class="wrap">
+        <p class="story-chapter__kicker">Chapter 1</p>
+        <h2 id="chapter-1-heading">Bigger screen, bigger bill</h2>
+        <p class="story-chapter__lede">
+          Every dot on the chart below is one television model. Its
+          position left-to-right shows screen size in inches; its position
+          bottom-to-top shows how many kilowatt-hours it's labelled to use
+          in a year. Follow the cloud of dots and a clear shape appears:
+          as screens grow, so does their yearly energy appetite.
+        </p>
+
+        <div class="story-chapter__grid">
+          <div class="chart-card">
+            <p class="chart-card__title">Chart 1 — Screen size vs. yearly energy use</p>
+            <div class="chart-card__canvas-wrap">
+              <canvas id="scatterChart" role="img" aria-label="Scatter plot of screen size in inches against labelled yearly energy consumption in kilowatt hours, showing an upward trend"></canvas>
+            </div>
+            <p class="chart-card__caption">
+              Each point is one of the 4,508 TV models currently available
+              for sale in Australia (screen size converted from cm to
+              inches). Source: <code>tv_2026_02_15.csv</code>.
+            </p>
+            <details class="chart-card__data-toggle">
+              <summary>View a few reference points as text</summary>
+              <table>
+                <thead><tr><th>Screen size</th><th>Typical energy use</th></tr></thead>
+                <tbody>
+                  <tr><td>32"</td><td>≈ 119 kWh/year</td></tr>
+                  <tr><td>43"</td><td>≈ 237 kWh/year</td></tr>
+                  <tr><td>55"</td><td>≈ 365 kWh/year</td></tr>
+                  <tr><td>65"</td><td>≈ 503 kWh/year</td></tr>
+                  <tr><td>75"</td><td>≈ 642 kWh/year</td></tr>
+                  <tr><td>85"</td><td>≈ 839 kWh/year</td></tr>
+                  <tr><td>100"</td><td>≈ 1,139 kWh/year</td></tr>
+                </tbody>
+              </table>
+            </details>
+          </div>
+
+          <div class="insight-stack">
+            <div class="stat-highlight">
+              <span class="stat-highlight__value">0.86</span>
+              <span class="stat-highlight__label">correlation between screen size and yearly energy use</span>
+            </div>
+            <div class="insight-box">
+              <p class="insight-box__label">What this means</p>
+              <p>
+                A correlation of 0.86 (out of a possible 1.0) is strong.
+                In plain terms: screen size on its own explains most of
+                the difference in how much energy a TV uses each year —
+                you don't need to know anything else about a model to
+                make a fair guess at its running cost.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CHAPTER 2 ============ -->
+    <section class="story-chapter" id="chapter-2" aria-labelledby="chapter-2-heading">
+      <div class="wrap">
+        <p class="story-chapter__kicker">Chapter 2</p>
+        <h2 id="chapter-2-heading">The hidden cost of going big</h2>
+        <p class="story-chapter__lede">
+          Kilowatt-hours are hard to picture. Dollars aren't. Using an
+          indicative Australian electricity price of 30&cent; per kWh, here's
+          what small (under 43"), medium (44"–65") and large (66"+) TVs
+          cost to run over a year, on average.
+        </p>
+
+        <div class="legend-chips">
+          <span class="legend-chip legend-chip--small"><span class="legend-chip__swatch"></span>Small (&lt;43")</span>
+          <span class="legend-chip legend-chip--medium"><span class="legend-chip__swatch"></span>Medium (44"–65")</span>
+          <span class="legend-chip legend-chip--large"><span class="legend-chip__swatch"></span>Large (66"+)</span>
+        </div>
+
+        <div class="cost-cards">
+          <div class="cost-card cost-card--small">
+            <span class="cost-card__tag">Small TV</span>
+            <span class="cost-card__dollar">$38 / year</span>
+            <p class="cost-card__sub">≈ 128 kWh/year on average</p>
+          </div>
+          <div class="cost-card cost-card--medium">
+            <span class="cost-card__tag">Medium TV</span>
+            <span class="cost-card__dollar">$115 / year</span>
+            <p class="cost-card__sub">≈ 383 kWh/year on average</p>
+          </div>
+          <div class="cost-card cost-card--large">
+            <span class="cost-card__tag">Large TV</span>
+            <span class="cost-card__dollar">$225 / year</span>
+            <p class="cost-card__sub">≈ 749 kWh/year on average</p>
+          </div>
+        </div>
+
+        <div class="story-chapter__grid">
+          <div class="chart-card">
+            <p class="chart-card__title">Chart 2 — Average yearly energy use by size category</p>
+            <div class="chart-card__canvas-wrap chart-card__canvas-wrap--short">
+              <canvas id="costChart" role="img" aria-label="Bar chart comparing average yearly energy use in kilowatt hours for small, medium and large televisions"></canvas>
+            </div>
+            <p class="chart-card__caption">
+              Hover or tap a bar to see the estimated dollar cost. Price
+              assumption: 30&cent;/kWh (an indicative mid-range Australian
+              rate — actual plans vary by state and provider).
+            </p>
+          </div>
+
+          <div class="insight-stack">
+            <div class="insight-box">
+              <p class="insight-box__label">Key takeaway</p>
+              <p>
+                A large TV costs roughly <strong>5.9&times;</strong> more to
+                run per year than a small one — about $187 extra, every
+                year, for the life of the TV. That's a real, recurring
+                cost worth weighing up alongside the upfront purchase
+                price.
+              </p>
+            </div>
+            <div class="story-cta">
+              <p>Want to check a specific model of your own?</p>
+              <a class="story-cta__link" href="televisions.html">Try the calculator →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CHAPTER 3 ============ -->
+    <section class="story-chapter" id="chapter-3" aria-labelledby="chapter-3-heading">
+      <div class="wrap">
+        <p class="story-chapter__kicker">Chapter 3</p>
+        <h2 id="chapter-3-heading">Diminishing returns: is bigger always worse?</h2>
+        <p class="story-chapter__lede">
+          The relationship isn't a straight line — it curves upward.
+          Energy use climbs faster once screens pass the 75"–85" mark
+          than it does between, say, 32" and 55". And not every large TV
+          is equally hungry: the bigger the screen, the wider the spread
+          between the most and least efficient models.
+        </p>
+
+        <div class="story-chapter__grid">
+          <div class="chart-card">
+            <p class="chart-card__title">Chart 3 — Average energy use at every screen size</p>
+            <div class="chart-card__canvas-wrap">
+              <canvas id="sizeLineChart" role="img" aria-label="Line chart showing average yearly energy use rising, and accelerating, as screen size increases from 16 to 116 inches"></canvas>
+            </div>
+            <p class="chart-card__caption">
+              Notice how the curve steepens after ~75". Going from 32" to
+              55" adds roughly 246 kWh/year, but going from 75" to 100"
+              adds around 497 kWh/year — nearly double the jump for a
+              similar step up in size.
+            </p>
+          </div>
+
+          <div class="insight-stack">
+            <div class="insight-box">
+              <p class="insight-box__label">Why this matters</p>
+              <p>
+                Because the curve accelerates, the very biggest screens
+                carry an outsized share of the market's total energy use
+                — a useful signal for regulators thinking about where
+                efficiency standards matter most.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-chapter__grid" style="margin-top: 30px;">
+          <div class="chart-card">
+            <p class="chart-card__title">Chart 4 — Typical spread within each size category</p>
+            <div class="chart-card__canvas-wrap chart-card__canvas-wrap--short">
+              <canvas id="spreadChart" role="img" aria-label="Floating bar chart showing the typical range of energy use, mean plus or minus one standard deviation, for small, medium and large televisions, with the range widening for larger sizes"></canvas>
+            </div>
+            <details class="chart-card__data-toggle">
+              <summary>View the ranges as text</summary>
+              <table>
+                <thead><tr><th>Category</th><th>Typical range (±1 std dev)</th></tr></thead>
+                <tbody>
+                  <tr><td>Small</td><td>≈ 83 – 173 kWh/year</td></tr>
+                  <tr><td>Medium</td><td>≈ 238 – 528 kWh/year</td></tr>
+                  <tr><td>Large</td><td>≈ 483 – 1,015 kWh/year</td></tr>
+                </tbody>
+              </table>
+            </details>
+          </div>
+
+          <div class="insight-stack">
+            <div class="insight-box">
+              <p class="insight-box__label">The nuance</p>
+              <p>
+                A large TV's typical range is over 500 kWh/year wide —
+                far wider than a small TV's. So "large" doesn't
+                automatically mean "wasteful": some large models sit
+                closer to a medium TV's usage. If you want a big screen,
+                it's worth comparing specific models rather than ruling
+                out a whole size category.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CLOSING: WHAT THIS MEANS ============ -->
+    <section aria-labelledby="means-heading">
+      <div class="wrap">
+        <h2 id="means-heading" class="section-title">What this means for you</h2>
+        <p class="section-lede">Three chapters, three audiences — here's the takeaway for each.</p>
+
+        <div class="audience-grid">
+          <div class="audience-card">
+            <span class="audience-card__icon" aria-hidden="true">C</span>
+            <h3>Consumers</h3>
+            <p>
+              Screen size is the single biggest driver of a TV's running
+              cost. If energy bills matter to you, weigh up the extra
+              $100–$200 a year a bigger screen can add — then use our
+              <a href="televisions.html">calculator</a> to check a
+              specific model.
+            </p>
+          </div>
+          <div class="audience-card">
+            <span class="audience-card__icon" aria-hidden="true">P</span>
+            <h3>Policymakers &amp; regulators</h3>
+            <p>
+              Energy use accelerates sharply above ~75". As larger
+              screens become more popular, efficiency standards targeted
+              at this segment could have an outsized impact on
+              nationwide consumption.
+            </p>
+          </div>
+          <div class="audience-card">
+            <span class="audience-card__icon" aria-hidden="true">R</span>
+            <h3>Researchers</h3>
+            <p>
+              The strong overall correlation (0.86) hides real
+              variability within each size category — a reminder that
+              screen size is a good predictor, but not the whole story.
+              Panel technology and other factors are worth a closer look.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ METHODOLOGY FOOTNOTE ============ -->
+    <section aria-labelledby="method-heading">
+      <div class="wrap">
+        <h2 id="method-heading" class="section-title">About this analysis</h2>
+        <div class="methodology-note">
+          <p style="margin-top:0;">
+            <strong>Data &amp; processing:</strong> figures on this page
+            come from the Australian Government's household appliance
+            energy rating dataset (<code>tv_2026_02_15.csv</code>),
+            filtered to models marked "Available" and sold in Australia,
+            then processed in KNIME to convert screen size from cm to
+            inches and group models into small / medium / large
+            categories — mirroring the Exercise&nbsp;2 workflow.
+          </p>
+          <p style="margin-bottom:0;">
+            <strong>Limitations:</strong> the electricity price used for
+            dollar estimates (30&cent;/kWh) is an indicative average, not a
+            specific plan or region. Labelled energy consumption is a
+            standardised test figure and may differ from real-world
+            usage. For the full data source, privacy, accuracy and AI
+            declaration details, see the project
+            <a href="about.html">About page</a> and repository README.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> Power Watch — created by Chooi Ke Xin.</p>
+      <p class="site-footer__ai">
+        Some code on this site was developed with the assistance of
+        Generative AI. See the project README for the full reflection.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Chart.js, vendored locally (MIT licensed, see assets/js/vendor/chart.js-LICENSE.md)
+       so this page never depends on an external CDN being reachable. -->
+  <script src="assets/js/vendor/chart.umd.js"></script>
+  <!-- Pre-computed chart data (does not touch the original CSV) -->
+  <script src="assets/js/story-data.js"></script>
+  <!-- Existing site script (footer year, etc.) -->
+  <script src="assets/js/main.js"></script>
+  <!-- New chart-rendering logic for this page only -->
+  <script src="assets/js/story.js"></script>
+</body>
+</html>
