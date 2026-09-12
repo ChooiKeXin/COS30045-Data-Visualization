@@ -1,25 +1,22 @@
 /* =========================================================
    Power Watch — story.js
-   Renders the four charts on story.html using Chart.js
-   (loaded from CDN in story.html) and the pre-computed
-   dataset in assets/js/story-data.js (window.STORY_DATA).
+   Renders the three charts on story.html using Chart.js
+   (vendored locally) and the pre-computed dataset in
+   assets/js/story-data.js (window.STORY_DATA).
 
    The numbers in STORY_DATA were derived from
    assets/data/tv_2026_02_15.csv, filtered to TVs currently
-   "Available" and sold in Australia, following the same
-   steps used in the Exercise 2 KNIME workflow (Data
-   Question 2): convert screensize cm -> inch, then group by
-   exact size and by small/medium/large category.
+   "Available" and sold in Australia, mirroring the Exercise 2
+   KNIME workflow (Data Question 2): convert screensize cm ->
+   inch, then group by exact size and by small/medium/large
+   category.
 
-   Only runs on pages that contain the relevant canvases, so
-   it has no effect on index.html / televisions.html / about.html.
+   Only runs on pages that contain the relevant canvases, so it
+   has no effect on index.html / televisions.html / about.html.
    ========================================================= */
 
 (function () {
   if (typeof window.STORY_DATA === "undefined" || typeof Chart === "undefined") {
-    // Fail visibly rather than leaving silent blank boxes, so any
-    // future loading problem is obvious instead of looking like a
-    // missing/broken chart.
     document.querySelectorAll(".chart-card__canvas-wrap").forEach((wrap) => {
       wrap.innerHTML =
         '<p style="padding:16px;color:#B3341C;font-family:\'IBM Plex Mono\',monospace;font-size:0.85rem;">' +
@@ -32,8 +29,6 @@
 
   const DATA = window.STORY_DATA;
 
-  // Pull a few CSS custom properties so charts match the site's
-  // existing colour palette exactly (defined in style.css :root).
   const rootStyles = getComputedStyle(document.documentElement);
   const colour = (name, fallback) => (rootStyles.getPropertyValue(name) || fallback).trim();
 
@@ -45,6 +40,9 @@
     success: colour("--color-success", "#3C6B3E"),
     error: colour("--color-error", "#B3341C"),
     ink: colour("--color-ink", "#2B2318"),
+    story1: colour("--story1-accent", "#C97C1F"),
+    story2: colour("--story2-accent", "#3C6B3E"),
+    story3: colour("--story3-accent", "#B3341C"),
   };
 
   Chart.defaults.font.family = "'Work Sans', 'Segoe UI', sans-serif";
@@ -53,7 +51,6 @@
   const gridColor = "rgba(92, 74, 46, 0.12)";
 
   function withAlpha(hex, alpha) {
-    // hex like #E8A33D -> rgba(...)
     const clean = hex.replace("#", "");
     const bigint = parseInt(clean, 16);
     const r = (bigint >> 16) & 255;
@@ -63,7 +60,7 @@
   }
 
   /* ---------------------------------------------------------
-     Chapter 1: Scatter — screen size (inch) vs energy (kWh/yr)
+     Story 1 (Consumers) — Scatter: screen size vs energy (kWh/yr)
      --------------------------------------------------------- */
   const scatterCanvas = document.getElementById("scatterChart");
   if (scatterCanvas) {
@@ -74,7 +71,7 @@
           {
             label: "TV model",
             data: DATA.scatterPoints,
-            backgroundColor: withAlpha(COLORS.orangeDeep, 0.55),
+            backgroundColor: withAlpha(COLORS.story1, 0.55),
             borderColor: withAlpha(COLORS.brownDeep, 0.4),
             borderWidth: 0.5,
             pointRadius: 3,
@@ -109,12 +106,11 @@
   }
 
   /* ---------------------------------------------------------
-     Chapter 2: Bar — average yearly kWh (and $ cost) by category
+     Story 1 (Consumers) — Bar: average yearly kWh by category
      --------------------------------------------------------- */
   const costCanvas = document.getElementById("costChart");
   if (costCanvas) {
     const price = DATA.meta.pricePerKwh;
-    const catColors = [COLORS.success, COLORS.orange, COLORS.error];
 
     new Chart(costCanvas, {
       type: "bar",
@@ -124,7 +120,7 @@
           {
             label: "Average energy use",
             data: DATA.categoryValues,
-            backgroundColor: catColors.map((c) => withAlpha(c, 0.85)),
+            backgroundColor: withAlpha(COLORS.story1, 0.75),
             borderColor: COLORS.brownDeep,
             borderWidth: 1.5,
             borderRadius: 6,
@@ -160,7 +156,7 @@
   }
 
   /* ---------------------------------------------------------
-     Chapter 3a: Line — average kWh by exact screen size
+     Story 2 (Policymakers) — Line: average kWh by exact screen size
      --------------------------------------------------------- */
   const sizeLineCanvas = document.getElementById("sizeLineChart");
   if (sizeLineCanvas) {
@@ -172,8 +168,8 @@
           {
             label: "Average kWh / year",
             data: DATA.sizeValues,
-            borderColor: COLORS.orangeDeep,
-            backgroundColor: withAlpha(COLORS.orange, 0.25),
+            borderColor: COLORS.story2,
+            backgroundColor: withAlpha(COLORS.story2, 0.2),
             fill: true,
             tension: 0.35,
             pointRadius: 2,
@@ -209,13 +205,12 @@
   }
 
   /* ---------------------------------------------------------
-     Chapter 3b: Floating bar — spread (mean ± 1 std) per category
-     Shows that variability grows with screen size: not every
-     large TV is equally hungry.
+     Story 3 (Researchers) — Floating bar: spread (mean ± 1 std)
+     per category. Shows that variability grows with screen size:
+     not every large TV is equally hungry.
      --------------------------------------------------------- */
   const spreadCanvas = document.getElementById("spreadChart");
   if (spreadCanvas) {
-    const catColors = [COLORS.success, COLORS.orange, COLORS.error];
     const ranges = DATA.categoryLabels.map((label, i) => {
       const mean = DATA.categoryValues[i];
       const std = DATA.categoryStd[i];
@@ -230,8 +225,8 @@
           {
             label: "Typical range (±1 std dev)",
             data: ranges,
-            backgroundColor: catColors.map((c) => withAlpha(c, 0.35)),
-            borderColor: catColors,
+            backgroundColor: withAlpha(COLORS.story3, 0.35),
+            borderColor: COLORS.story3,
             borderWidth: 2,
             borderRadius: 6,
             maxBarThickness: 70,

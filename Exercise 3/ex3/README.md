@@ -2,7 +2,13 @@
 
 ## Overview
 
-This project turns the TV energy consumption dataset explored in Exercise 2 into a data story for a general audience. It builds on the Power Watch website from Exercise 0.2 by adding a new **Data Story** page (`story.html`) with three short chapters, each backed by an interactive chart.
+This project turns the TV energy consumption dataset explored in Exercise 2
+into three separate data stories, each for a different audience. It builds
+on the Power Watch website from Exercise 0.2 by adding a new **Data Story**
+page (`story.html`). Each story was planned as its own six-panel storyboard
+(issue → demonstrate issue → idea → describe → evidence → recommendation)
+before any chart was built, then presented on the page as: storyboard →
+short narrative → its own chart.
 
 **Data story page:** `story.html`
 
@@ -12,25 +18,42 @@ This project turns the TV energy consumption dataset explored in Exercise 2 into
 
 ### Audience
 
-This story is written for three groups:
+Three separate stories are told from the same dataset, each for a
+different reader:
 
-- **Consumers** shopping for a new TV who want to understand running costs
-- **Policymakers and regulators** interested in energy consumption trends
-- **Researchers** studying energy efficiency in consumer electronics
+- **Story 1 — Consumers.** TV shoppers comparing models before they buy,
+  who check the price tag but rarely the running cost.
+- **Story 2 — Policymakers & regulators.** People deciding where energy
+  efficiency standards would have the biggest impact on national
+  consumption.
+- **Story 3 — Researchers & analysts.** People studying energy efficiency
+  in consumer electronics, who want the nuance behind a headline
+  correlation, not just the average.
 
-All three care about the same underlying question, just for different reasons: *how much does screen size really affect a TV's energy use?*
+All three are based on **Exercise 2, Data Question 2** — *how does screen
+size impact energy consumption?* — but each asks a different follow-up
+question of the same numbers.
 
-### The question
+### The three storyboards
 
-Based on **Exercise 2, Data Question 2** — *How does screen size impact energy consumption?*
+1. **Does a bigger TV really cost more to run?** (Consumers) — a scatter
+   plot of all 4,508 available TV models shows a strong relationship
+   (correlation 0.86) between screen size and yearly energy use, translated
+   into an estimated yearly running cost in dollars for small, medium and
+   large TVs.
+2. **Where should energy efficiency rules focus?** (Policymakers) — a line
+   chart shows the relationship isn't linear: energy use accelerates
+   sharply past ~75", so efficiency standards aimed at the largest screens
+   would have an outsized effect on national energy use.
+3. **Is screen size the whole story?** (Researchers) — a floating-bar chart
+   shows the typical range of energy use widening sharply with screen size,
+   so a strong correlation still hides real variability within each
+   category.
 
-### The three chapters
-
-1. **Bigger Screen, Bigger Bill** — a scatter plot of all 4,508 available TV models shows a strong relationship (correlation 0.86) between screen size and yearly energy use.
-2. **The Hidden Cost of Going Big** — translates that relationship into estimated yearly running cost in dollars, comparing small, medium, and large TVs.
-3. **Diminishing Returns — Is Bigger Always Worse?** — shows the relationship isn't perfectly linear (it steepens after ~75") and that energy use varies more widely within the "large" category, so not every big TV is equally inefficient.
-
-Each chapter pairs a chart with plain-language text so a non-technical reader can follow the story without needing to read a graph cold.
+Each storyboard uses the same six-panel structure shown in class (issue,
+demonstrate issue, idea, describe, evidence, recommendation), hand-planned
+before building the matching chart, so the chart always answers the
+question the storyboard sets up.
 
 ---
 
@@ -62,11 +85,11 @@ The dataset contains no personal or sensitive information — it's entirely prod
 
 ### Ethics
 
-The story aims to represent the data honestly:
+The stories aim to represent the data honestly:
 
 - Charts use real, unmodified aggregate figures — no exaggerated axes or misleading scales
 - Assumptions (like the electricity price) are stated clearly rather than hidden
-- Chapter 3 deliberately shows variability within categories, rather than only the tidy small/medium/large averages, to avoid implying every large TV is automatically wasteful
+- Story 3 deliberately shows variability within categories, rather than only the tidy small/medium/large averages, to avoid implying every large TV is automatically wasteful
 
 ---
 
@@ -74,10 +97,10 @@ The story aims to represent the data honestly:
 
 Generative AI (Claude) was used to assist with this exercise, including:
 
-- Reviewing the workflow and suggesting which data question would tell the clearest story
-- Drafting the three chapter narratives and page copy
+- Reviewing the workflow and suggesting which data questions would tell the clearest stories
+- Drafting the stories narratives and page copy
 - Writing the HTML/CSS for the new `story.html` page (kept visually consistent with the existing Power Watch site)
-- Writing the JavaScript (Chart.js) code that renders the four charts
+- Writing the JavaScript (Chart.js) code that renders the three charts
 - Drafting this README
 
 All AI-assisted code and text were checked before being added to the site.
@@ -99,18 +122,20 @@ This site is hosted on Swinburne's Mercury server. It was uploaded via WinSCP in
 ex3/
 ├── index.html            # Home page
 ├── televisions.html      # TV energy calculator
-├── story.html            # NEW — Data Story page (Exercise 3)
+├── story.html            # NEW — Data Story page (Exercise 3): 3 stories, each with its own storyboard + chart
 ├── about.html            # About page
+├── README.md
 ├── assets/
 │   ├── css/
 │   │   ├── style.css      # Original site styles
-│   │   └── story.css      # NEW — styles for the Data Story page
+│   │   └── story.css      # NEW — storyboard + story layout styles
 │   ├── js/
 │   │   ├── main.js         # Original site scripts
-│   │   ├── story.js         # NEW — chart rendering logic
+│   │   ├── story.js         # NEW — chart rendering logic (3 charts)
 │   │   ├── story-data.js    # NEW — pre-computed chart data
 │   │   └── vendor/          # NEW — locally hosted Chart.js library
 │   ├── data/
 │   │   └── tv_2026_02_15.csv
 │   └── img/
+│   │   └── PowerIcon.png
 ```
