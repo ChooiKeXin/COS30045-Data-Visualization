@@ -1,0 +1,484 @@
+/* =========================================================
+   Power Watch — Data Story page
+   Additive stylesheet: loaded ALONGSIDE style.css on story.html
+   only. Reuses the tokens declared in style.css (--color-*,
+   --font-*, --radius, --border, --shadow-soft) and adds new
+   rules for the storyboard + three-chapter layout.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+
+:root {
+  --font-hand: "Kalam", cursive;
+  --corkboard: #C7A876;
+  --corkboard-deep: #A9884F;
+
+  --story1-note: #FCE788;
+  --story1-note-edge: #E0C64F;
+  --story1-ink: #4A3E10;
+  --story1-accent: #C97C1F;
+
+  --story2-note: #AEE4C4;
+  --story2-note-edge: #7DC79B;
+  --story2-ink: #17422A;
+  --story2-accent: #3C6B3E;
+
+  --story3-note: #FFC9A6;
+  --story3-note-edge: #F0A374;
+  --story3-ink: #5C2A10;
+  --story3-accent: #B3341C;
+}
+
+/* ---------- Story hero ---------- */
+.story-hero {
+  padding-top: 56px;
+  padding-bottom: 24px;
+}
+
+.story-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 18px 0 6px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-brown-deep);
+}
+
+.story-hero__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.story-hero__meta span::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  display: inline-block;
+}
+
+/* ---------- Chapter jump-nav ---------- */
+.chapter-nav {
+  position: sticky;
+  top: 74px;
+  z-index: 5;
+  background: var(--color-cream);
+  padding: 10px 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(92, 74, 46, 0.25);
+}
+
+.chapter-nav__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.chapter-nav__link {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--color-brown-deep);
+  background: #fff;
+  border: 2px solid var(--color-brown);
+  border-radius: 999px;
+  padding: 7px 14px;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.chapter-nav__link:hover,
+.chapter-nav__link:focus-visible {
+  background: var(--color-orange);
+  transform: translateY(-1px);
+}
+
+/* ---------- Story block (one of the three stories) ---------- */
+.story-block {
+  padding: 60px 0;
+  border-bottom: 1px dashed rgba(92, 74, 46, 0.3);
+  scroll-margin-top: 130px;
+}
+
+.story-block:last-of-type {
+  border-bottom: none;
+}
+
+.story-block__kicker {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.story-block--consumers .story-block__kicker { color: var(--story1-accent); }
+.story-block--policy .story-block__kicker { color: var(--story2-accent); }
+.story-block--research .story-block__kicker { color: var(--story3-accent); }
+
+.story-block h2 {
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  max-width: 24ch;
+  margin-bottom: 8px;
+}
+
+.story-block__audience {
+  font-size: 0.95rem;
+  color: var(--color-brown);
+  margin: 0 0 26px;
+  max-width: 60ch;
+}
+
+.story-block__audience strong {
+  color: var(--color-brown-deep);
+}
+
+/* ---------- Corkboard + sticky-note storyboard ---------- */
+.corkboard {
+  background: var(--corkboard);
+  border-radius: var(--radius);
+  padding: 28px 24px 20px;
+  margin-bottom: 30px;
+  box-shadow: inset 0 0 0 2px var(--corkboard-deep);
+}
+
+.corkboard__label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: #4A3B22;
+  margin: 0 0 16px;
+  opacity: 0.75;
+}
+
+.sticky-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px 18px;
+}
+
+@media (max-width: 760px) {
+  .sticky-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .sticky-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sticky-note {
+  position: relative;
+  padding: 16px 14px 14px;
+  min-height: 140px;
+  font-family: var(--font-hand);
+  border: 1px solid;
+  transition: transform 0.15s ease;
+}
+
+.sticky-note:hover,
+.sticky-note:focus-within {
+  transform: translateY(-4px) rotate(0deg) !important;
+}
+
+.sticky-note::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #8a2f22;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.story-block--consumers .sticky-note {
+  background: var(--story1-note);
+  border-color: var(--story1-note-edge);
+  color: var(--story1-ink);
+}
+
+.story-block--policy .sticky-note {
+  background: var(--story2-note);
+  border-color: var(--story2-note-edge);
+  color: var(--story2-ink);
+}
+
+.story-block--research .sticky-note {
+  background: var(--story3-note);
+  border-color: var(--story3-note-edge);
+  color: var(--story3-ink);
+}
+
+.sticky-note:nth-child(1) { transform: rotate(-2deg); }
+.sticky-note:nth-child(2) { transform: rotate(1.4deg); }
+.sticky-note:nth-child(3) { transform: rotate(-1deg); }
+.sticky-note:nth-child(4) { transform: rotate(2deg); }
+.sticky-note:nth-child(5) { transform: rotate(-1.6deg); }
+.sticky-note:nth-child(6) { transform: rotate(1deg); }
+
+.sticky-note__step {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  opacity: 0.75;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.sticky-note__text {
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ---------- Narrative + chart row ---------- */
+.story-block__lede {
+  max-width: 68ch;
+  font-size: 1.05rem;
+  color: var(--color-ink);
+  margin-bottom: 26px;
+}
+
+.story-block__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 26px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .story-block__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Chart card ---------- */
+.chart-card {
+  background: #fff;
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 20px 20px 14px;
+  box-shadow: var(--shadow-soft);
+}
+
+.chart-card__title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brown-deep);
+  margin: 0 0 14px;
+}
+
+.chart-card__canvas-wrap {
+  position: relative;
+  height: 320px;
+}
+
+.chart-card__canvas-wrap--short {
+  height: 250px;
+}
+
+.chart-card__caption {
+  font-size: 0.85rem;
+  color: var(--color-brown);
+  margin: 12px 0 0;
+}
+
+.chart-card__data-toggle {
+  margin-top: 10px;
+}
+
+.chart-card__data-toggle summary {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-orange-deep);
+  font-weight: 600;
+}
+
+.chart-card__data-toggle table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.chart-card__data-toggle th,
+.chart-card__data-toggle td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(92, 74, 46, 0.2);
+}
+
+/* ---------- Insight / stat callouts ---------- */
+.insight-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.insight-box {
+  background: var(--color-cream-panel);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.insight-box__label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--color-orange-deep);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.insight-box p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.stat-highlight {
+  background: var(--color-brown-deep);
+  color: var(--color-cream);
+  border-radius: var(--radius);
+  border: 2px solid var(--color-brown);
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-highlight__value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-orange);
+  line-height: 1.1;
+}
+
+.stat-highlight__label {
+  font-size: 0.88rem;
+  color: var(--color-cream-panel);
+  margin-top: 6px;
+}
+
+/* ---------- Cost cards ---------- */
+.cost-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 4px 0 26px;
+}
+
+@media (max-width: 720px) {
+  .cost-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cost-card {
+  background: #fff;
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+  border-top-width: 6px;
+}
+
+.cost-card--small { border-top-color: var(--color-success); }
+.cost-card--medium { border-top-color: var(--color-orange); }
+.cost-card--large { border-top-color: var(--color-error); }
+
+.cost-card__tag {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--color-brown);
+}
+
+.cost-card__dollar {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--color-brown-deep);
+  margin: 6px 0 2px;
+}
+
+.cost-card__sub {
+  font-size: 0.85rem;
+  color: var(--color-brown);
+  margin: 0;
+}
+
+/* ---------- Closing "what this means" audience grid ---------- */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.audience-card {
+  background: #fff;
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow-soft);
+}
+
+.audience-card__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-cream-panel);
+  border: 2px solid var(--color-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-brown-deep);
+  margin-bottom: 12px;
+}
+
+.audience-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.audience-card p {
+  font-size: 0.92rem;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+/* ---------- Methodology footnote ---------- */
+.methodology-note {
+  background: #fff;
+  border: 1.5px dashed var(--color-brown);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  font-size: 0.9rem;
+  color: var(--color-brown);
+}
+
+.methodology-note strong {
+  color: var(--color-brown-deep);
+}

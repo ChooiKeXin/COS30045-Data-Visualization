@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Watch | Home</title>
+  <meta name="description" content="Power Watch helps Australian households understand what their appliances really cost to run." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/svg-exercise.css" />
+  <link rel="icon" href="assets/img/PowerIcon.png" type="image/png" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/img/PowerIcon.png" alt="Power Watch logo" class="nav__logo-img" />
+        <span class="nav__brand">Power Watch</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link is-active">Home</a></li>
+        <li><a href="televisions.html" class="nav__link">Televisions</a></li>
+        <li><a href="story.html" class="nav__link">Data Story</a></li>
+        <li><a href="about.html" class="nav__link">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__eyebrow">Australian household energy</p>
+        <h1>Know what's really running up your power bill.</h1>
+        <p>
+          Power Watch is a small demonstration site about appliance energy
+          consumption in Australian homes. Electricity prices have climbed
+          in recent years, and everyday appliances left running quietly in
+          the background are often a bigger part of the bill than people
+          expect. This page walks through the basics; the
+          <a href="televisions.html">Televisions</a> page lets you estimate
+          the running cost of a TV for yourself.
+        </p>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="spark-divider" aria-hidden="true">
+        <span class="spark-divider__bolt"></span>
+      </div>
+    </div>
+
+    <section aria-labelledby="why-heading">
+      <div class="wrap">
+        <h2 id="why-heading" class="section-title">Where household electricity goes</h2>
+        <p class="section-lede">
+          Placeholder overview of appliance energy use in the Australian
+          market. Figures below are illustrative examples for this
+          exercise, not verified statistics.
+        </p>
+
+        <div class="card-grid">
+          <div class="card">
+            <span class="card__stat">~35%</span>
+            <h3>Heating &amp; cooling</h3>
+            <p>Typically the largest single share of a home's electricity use across the year.</p>
+          </div>
+          <div class="card">
+            <span class="card__stat">~24%</span>
+            <h3>Hot water</h3>
+            <p>Water heating runs quietly in the background but adds up over a billing cycle.</p>
+          </div>
+          <div class="card">
+            <span class="card__stat">~15%</span>
+            <h3>Appliances</h3>
+            <p>Fridges, TVs, washing machines and other everyday appliances combined.</p>
+          </div>
+          <div class="card">
+            <span class="card__stat">~10%</span>
+            <h3>Standby power</h3>
+            <p>Devices left plugged in on standby can draw power even when "off".</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-heading">
+      <div class="wrap">
+        <h2 id="faq-heading" class="section-title">Frequently asked questions</h2>
+        <p class="section-lede">Click a question to reveal the answer.</p>
+
+        <div class="faq">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-q-1">
+              <span>What uses the most electricity in an Australian home?</span>
+              <span class="faq-question__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-q-1">
+              <p>
+                Heating and cooling systems are usually
+                the biggest contributor, followed by hot water and large
+                appliances such as fridges and washing machines.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-q-2">
+              <span>How do I read an appliance's power label?</span>
+              <span class="faq-question__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-q-2">
+              <p>
+                Most appliances list a wattage (W) or
+                energy rating sticker. The higher the wattage, the more
+                electricity the appliance draws while it's running.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-q-3">
+              <span>Does turning appliances off at the wall actually save money?</span>
+              <span class="faq-question__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-q-3">
+              <p>
+                Some devices continue to draw a small
+                amount of standby power when left plugged in. Switching
+                them off at the wall can lead to modest savings over a year.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-q-4">
+              <span>How is a kilowatt-hour (kWh) calculated?</span>
+              <span class="faq-question__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-q-4">
+              <p>
+                A kWh is the appliance's power in watts,
+                multiplied by the hours it runs, divided by 1000. Try it
+                yourself on the <a href="televisions.html">Televisions</a>
+                page.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="spark-divider" aria-hidden="true">
+        <span class="spark-divider__bolt"></span>
+      </div>
+    </div>
+
+    <!-- Exercise 4.1: Draw SVGs — before/after comparison and attribute changes table -->
+    <section aria-labelledby="svg-heading" class="svg-exercise">
+      <div class="wrap">
+        <p class="hero__eyebrow">Exercise 4.1</p>
+        <h2 id="svg-heading" class="section-title">Draw SVGs: Visual Comparison (Before vs After)</h2>
+        <p class="section-lede">
+          A house scene drawn by hand in SVG, then customised by changing
+          shapes, coordinates and attributes. Compare the initial draft with
+          the customised version below, or open each as its own page:
+          <a href="ex4.1/index_before.html">Before</a> &middot;
+          <a href="ex4.1/index_after.html">After</a>.
+        </p>
+
+        <!-- Exercise 4.1: Side-by-side inline SVG drawings (initial draft vs customised draft) -->
+        <div class="svg-compare">
+          <figure class="svg-compare__item">
+            <figcaption class="svg-compare__label">Initial Draft (Before)</figcaption>
+          <svg viewBox="0 0 500 500" role="img" aria-label="Initial SVG house drawing: sun top-left, one cloud top-right, plain windows, straight-left path">
+            <!-- Exercise 4.1: Sky (rect) -->
+            <rect x="0" y="0" width="500" height="300" fill="#87CEEB" />
+
+            <!-- Exercise 4.1: Grass (rect) -->
+            <rect x="0" y="300" width="500" height="200" fill="#228B22" />
+
+            <!-- Exercise 4.1: Sun (circle) -->
+            <circle cx="100" cy="80" r="35" fill="#FFD700" />
+
+            <!-- Exercise 4.1: Cloud (ellipse) -->
+            <ellipse cx="380" cy="70" rx="40" ry="20" fill="#FFFFFF" />
+
+            <!-- Exercise 4.1: House Body (rect) -->
+            <rect x="160" y="200" width="180" height="150" fill="#A0522D" />
+
+            <!-- Exercise 4.1: Roof (polygon) -->
+            <polygon points="140,200 250,110 360,200" fill="#B22222" />
+
+            <!-- Exercise 4.1: Windows Group (<g> with transform) -->
+            <g transform="translate(185, 230)" fill="#ADD8E6" stroke="#FFFFFF" stroke-width="2">
+            <rect x="0" y="0" width="35" height="35" />
+            <rect x="95" y="0" width="35" height="35" />
+            </g>
+
+            <!-- Exercise 4.1: Door (rect & circle) -->
+            <rect x="230" y="280" width="40" height="70" fill="#8B4513" />
+            <circle cx="262" cy="318" r="3" fill="#000000" />
+
+            <!-- Exercise 4.1: Path (path) -->
+            <path d="M 230,350 Q 210,420 170,500 L 210,500 Q 240,430 270,350 Z" fill="#DAA520" />
+
+            <!-- Exercise 4.1: Tree Trunk (line) & Crown (circle) -->
+            <line x1="70" y1="360" x2="70" y2="280" stroke="#8B4513" stroke-width="16" />
+            <circle cx="70" cy="260" r="30" fill="#2E8B57" />
+
+            <!-- Exercise 4.1: Text (text) -->
+            <text x="370" y="260" font-family="sans-serif" font-size="20" fill="#000000">House</text>
+
+          </svg>
+          </figure>
+          <figure class="svg-compare__item">
+            <figcaption class="svg-compare__label">Customized Draft (After)</figcaption>
+          <svg viewBox="0 0 500 500" role="img" aria-label="Customised SVG house drawing: sun top-right, two clouds, chimney, gridded windows, path curving right, My House label">
+            <!-- Exercise 4.1: Sky (rect) -->
+            <rect x="0" y="0" width="500" height="300" fill="#87CEEB" />
+
+            <!-- Exercise 4.1: Grass (rect) -->
+            <rect x="0" y="300" width="500" height="200" fill="#228B22" />
+
+            <!-- Exercise 4.1: Sun (circle) -->
+            <circle cx="420" cy="70" r="35" fill="#FFD700" />
+
+            <!-- Exercise 4.1: Cloud 1 (ellipse) -->
+            <ellipse cx="120" cy="60" rx="45" ry="22" fill="#FFFFFF" />
+            <!-- Exercise 4.1: Cloud 2 (ellipse) -->
+            <ellipse cx="230" cy="85" rx="35" ry="18" fill="#FFFFFF" opacity="0.9" />
+
+            <!-- Exercise 4.1: Chimney (rect) -->
+            <rect x="310" y="120" width="25" height="50" fill="#696969" />
+
+            <!-- Exercise 4.1: House Body (rect) -->
+            <rect x="160" y="200" width="180" height="150" fill="#CD853F" />
+
+            <!-- Exercise 4.1: Roof (polygon) -->
+            <polygon points="140,200 250,110 360,200" fill="#8B0000" />
+
+            <!-- Exercise 4.1: Windows Group (<g> with grid stroke) -->
+            <g transform="translate(180, 225)" fill="#E0FFFF" stroke="#4682B4" stroke-width="2">
+            <rect x="0" y="0" width="40" height="40" />
+            <line x1="20" y1="0" x2="20" y2="40" />
+            <line x1="0" y1="20" x2="40" y2="20" />
+
+            <rect x="100" y="0" width="40" height="40" />
+            <line x1="120" y1="0" x2="120" y2="40" />
+            <line x1="100" y1="20" x2="140" y2="20" />
+            </g>
+
+            <!-- Exercise 4.1: Door (rect & circle) -->
+            <rect x="230" y="280" width="40" height="70" fill="#5C4033" />
+            <circle cx="262" cy="318" r="4" fill="#FFD700" />
+
+            <!-- Exercise 4.1: Curved Path (path) -->
+            <path d="M 230,350 Q 290,420 330,500 L 370,500 Q 330,430 270,350 Z" fill="#DAA520" />
+
+            <!-- Exercise 4.1: Tree 1 (line & circle) -->
+            <line x1="90" y1="360" x2="90" y2="280" stroke="#8B4513" stroke-width="16" />
+            <circle cx="90" cy="260" r="32" fill="#2E8B57" />
+
+            <!-- Exercise 4.1: Text (text) -->
+            <text x="360" y="280" font-family="sans-serif" font-size="22" font-weight="bold" fill="#2F4F4F">My House</text>
+
+          </svg>
+          </figure>
+        </div>
+
+        <!-- Exercise 4.1: Table listing every changed element with its before/after attributes -->
+        <h3 class="svg-exercise__subtitle">Element Coordinate &amp; Attribute Changes</h3>
+        <div class="svg-table-wrap">
+          <table class="svg-table">
+            <thead>
+              <tr>
+                <th scope="col">Elements</th>
+                <th scope="col">Before Coordinates &amp; Attributes</th>
+                <th scope="col">After Coordinates &amp; Attributes</th>
+                <th scope="col">Customisation Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-label="Element"><strong>Sun</strong> (<code>&lt;circle&gt;</code>)</th>
+                <td data-label="Before"><code>cx="100"</code>, <code>cy="80"</code>, <code>r="35"</code></td>
+                <td data-label="After"><code>cx="420"</code>, <code>cy="70"</code>, <code>r="35"</code></td>
+                <td data-label="Notes">Moved the sun from top-left to top-right corner.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Element"><strong>Cloud 1</strong> (<code>&lt;ellipse&gt;</code>)</th>
+                <td data-label="Before"><code>cx="380"</code>, <code>cy="70"</code>, <code>rx="40"</code>, <code>ry="20"</code></td>
+                <td data-label="After"><code>cx="120"</code>, <code>cy="60"</code>, <code>rx="45"</code>, <code>ry="22"</code></td>
+                <td data-label="Notes">Shifted the main cloud to the top-left and enlarged it.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Element"><strong>Cloud 2</strong> (<code>&lt;ellipse&gt;</code>)</th>
+                <td data-label="Before"><em>None</em></td>
+                <td data-label="After"><code>cx="230"</code>, <code>cy="85"</code>, <code>rx="35"</code>, <code>ry="18"</code></td>
+                <td data-label="Notes">Added a secondary background cloud for better depth.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Element"><strong>Chimney</strong> (<code>&lt;rect&gt;</code>)</th>
+                <td data-label="Before"><em>None</em></td>
+                <td data-label="After"><code>x="310"</code>, <code>y="120"</code>, <code>width="25"</code>, <code>height="50"</code></td>
+                <td data-label="Notes">Added a grey chimney on the right side of the roof.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Element"><strong>Windows Group</strong> (<code>&lt;g&gt;</code>)</th>
+                <td data-label="Before"><code>transform="translate(185, 230)"</code></td>
+                <td data-label="After"><code>transform="translate(180, 225)"</code></td>
+                <td data-label="Notes">Adjusted group position and added grid lines (<code>&lt;line&gt;</code>) inside windows.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Element"><strong>Curved Path</strong> (<code>&lt;path&gt;</code>)</th>
+                <td data-label="Before"><code>d="M 230,350 Q 210,420 170,500..."</code></td>
+                <td data-label="After"><code>d="M 230,350 Q 290,420 330,500..."</code></td>
+                <td data-label="Notes">Modified control points to curve the path toward the right.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Element"><strong>Tree 1</strong> (<code>&lt;line</code> &amp; <code>&lt;circle&gt;</code>)</th>
+                <td data-label="Before"><code>Line <code>x1="70"</code>, Circle <code>cx="70"</code></td>
+                <td data-label="After"><code>Line <code>x1="90"</code>, Circle <code>cx="90"</code></td>
+                <td data-label="Notes">Shifted tree position 20 pixels to the right.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Element"><strong>Text</strong> (<code>&lt;text&gt;</code>)</th>
+                <td data-label="Before"><code>x="370"</code>, <code>y="260"</code>, Content: <code>"House"</code></td>
+                <td data-label="After"><code>x="360"</code>, <code>y="280"</code>, Content: <code>"My House"</code></td>
+                <td data-label="Notes">Adjusted position, updated content, and applied bold styling.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="spark-divider" aria-hidden="true">
+        <span class="spark-divider__bolt"></span>
+      </div>
+    </div>
+
+    <!-- Exercises 4.2 - 4.7: D3 bar chart of TV models per brand -->
+    <section aria-labelledby="d3-heading" class="svg-exercise">
+      <div class="wrap">
+        <p class="hero__eyebrow">Exercises 4.2 &ndash; 4.7</p>
+        <h2 id="d3-heading" class="section-title">D3 Bar Chart: Televisions per Brand</h2>
+        <p class="section-lede">
+          The final bar chart from Exercise 4.7, built step by step with D3:
+          loading the CSV (4.4), binding data to bars (4.5), scaling (4.6)
+          and adding labels (4.7). Bars are sorted from the brand with the
+          most models to the fewest.
+        </p>
+
+        <!-- Exercise 4.3: Card wrapping the responsive container; D3 appends the SVG into #brand-chart -->
+        <figure class="d3-chart">
+          <figcaption class="d3-chart__title">Number of TV Models by Brand</figcaption>
+          <div id="brand-chart" class="responsive-svg-container"></div>
+          <p class="d3-chart__note">Source: tvBrandCount.csv (TV energy rating dataset)</p>
+        </figure>
+
+        <p class="d3-links">
+          Standalone exercise pages:
+          <a href="ex4.2/index.html">4.2</a> &middot;
+          <a href="ex4.3/index.html">4.3</a> &middot;
+          <a href="ex4.4/index.html">4.4</a> &middot;
+          <a href="ex4.5/index.html">4.5</a> &middot;
+          <a href="ex4.6/index.html">4.6</a> &middot;
+          <a href="ex4.7/index.html">4.7</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> Power Watch — created by Chooi Ke Xin.</p>
+      <p class="site-footer__ai">
+        Some code on this site was developed with the assistance of
+        Generative AI. See the project README for the full reflection.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <!-- Exercise 4.2: Load the D3 v7 library, then the Exercise 4.7 bar chart code -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="assets/js/barchart.js"></script>
+</body>
+</html>

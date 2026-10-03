@@ -1,0 +1,23 @@
+/* CSS Style for Exercise 5.1 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Responsive container to hold the SVG element */
+.responsive-svg-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Custom bar hover effect */
+.bar {
+    transition: fill 0.2s ease;
+}
+
+.bar:hover {
+    fill: darkgreen;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4.2 - Manipulate and add elements with D3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        svg {
+            border: 1px solid #ccc;
+            margin-top: 15px;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Energy Consumption Overview</h1>
+
+        <!-- Exercise 4.2 (Step 3): D3 appends a new <p> at the end of this container -->
+        <p>Welcome to the energy efficiency portal.</p>
+
+        <!-- Exercise 4.2 (Step 4): SVG that D3 appends a rectangle into -->
+        <svg width="400" height="150"></svg>
+    </div>
+
+    <!-- Exercise 4.2 (Step 1): Load the D3 v7 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Exercise 4.2 (Step 1): Load our own D3 code file -->
+    <script src="main.js"></script>
+</body>
+</html>
